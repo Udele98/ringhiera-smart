@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Ringhiera Smart — WOW</title>
+<style>
+:root{--bg:#071017;--panel:#101b23;--panel2:#14232d;--line:#263640;--text:#f4f7f9;--muted:#8b9aa5;--orange:#ff7a18;--gold:#ffb347;--cyan:#35c9ff;--green:#27d69a;--purple:#a586ff}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(circle at 50% -10%,#1b3542 0,#0b151c 35%,#050b10 100%);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;min-height:100vh}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 25%,#35c9ff06 50%,transparent 75%);animation:bg 7s linear infinite}
+@keyframes bg{from{transform:translateX(-30%)}to{transform:translateX(30%)}}
+.wrap{max-width:850px;margin:auto;padding:15px 10px 42px}
+header{display:flex;justify-content:space-between;align-items:center;margin:2px 2px 15px}.brand{display:flex;align-items:center;gap:11px}
+.logo{width:49px;height:49px;border-radius:16px;background:linear-gradient(145deg,#293e4a,#0b1318);display:grid;place-items:center;font-weight:1000;letter-spacing:-1px;box-shadow:0 0 0 1px #ffffff10,0 6px 0 #03070a,0 0 30px #35c9ff20}
+h1{margin:0;font-size:25px;letter-spacing:-1px}.tag{color:var(--muted);font-size:10px;margin-top:3px}
+.live{font-size:9px;font-weight:950;padding:7px 9px;border-radius:99px;color:#79f2c8;background:#27d69a12;border:1px solid #27d69a35}.dot{display:inline-block;width:6px;height:6px;background:var(--green);border-radius:50%;margin-right:5px;box-shadow:0 0 9px var(--green)}
+.card{background:linear-gradient(145deg,#12202aee,#0d171fee);border:1px solid var(--line);border-radius:21px;padding:15px;margin-bottom:11px;box-shadow:0 15px 45px #00000030, inset 0 1px #ffffff08}
+.title{font-size:10px;letter-spacing:1px;text-transform:uppercase;font-weight:950;color:#91a0aa;margin-bottom:10px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}label{font-size:9px;color:var(--muted);font-weight:900;text-transform:uppercase;display:block;margin-bottom:5px}
+input{width:100%;height:51px;border-radius:14px;border:1px solid #31424d;background:#091218;color:#fff;padding:0 12px;font-size:19px;font-weight:850;outline:0}input:focus{border-color:var(--orange);box-shadow:0 0 0 3px #ff7a1820}
+.calc{position:relative;overflow:hidden;width:100%;height:59px;margin-top:10px;border:1px solid #ffad62;border-radius:16px;background:linear-gradient(#ffad62,#ff7a18 50%,#d95708);color:#fff;font-size:15px;font-weight:1000;letter-spacing:1px;cursor:pointer;box-shadow:0 6px 0 #9e3e06,0 0 24px #ff7a1870,0 0 55px #ff7a1825;transition:.12s}.calc:before{content:"";position:absolute;left:8%;right:8%;top:3px;height:22px;border-radius:50%;background:#fff4}.calc:after{content:"";position:absolute;top:-80%;left:-30%;width:22%;height:260%;transform:rotate(25deg);background:#fff6;filter:blur(5px);transition:left .55s}.calc:hover:after{left:120%}.calc:active{transform:translateY(5px);box-shadow:0 1px 0 #9e3e06,0 0 28px #ff7a18a0}.calc.flash{animation:flash .45s}@keyframes flash{50%{box-shadow:0 6px 0 #9e3e06,0 0 55px #ffae5acc,0 0 90px #ff7a1845}}
+.sectionHead{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}.sectionName{font-size:15px;font-weight:950}.badge{font-size:8px;font-weight:950;letter-spacing:.7px;color:#cbd5db;background:#ffffff0b;border:1px solid #ffffff13;padding:6px 8px;border-radius:8px}
+.heroGrid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.hero{position:relative;overflow:hidden;min-height:127px;border-radius:18px;padding:15px;border:1px solid #ffffff14;box-shadow:inset 0 1px #ffffff20,0 10px 30px #0004}.hero small{font-size:9px;font-weight:950;text-transform:uppercase;letter-spacing:1px;opacity:.8}.hero b{display:block;font-size:53px;line-height:1;letter-spacing:-3px;margin-top:22px}.hero span{position:absolute;right:12px;bottom:11px;font-size:9px;font-weight:850;opacity:.55}.hero.orange{background:radial-gradient(circle at 80% 0,#ffb35a,#d9550a 70%)}.hero.blue{background:radial-gradient(circle at 80% 0,#54d8ff,#1761a9 70%)}.hero.green{background:radial-gradient(circle at 80% 0,#58f0bd,#087850 70%)}.hero.purple{background:radial-gradient(circle at 80% 0,#c0a9ff,#6043a9 70%)}.pop{animation:pop .45s cubic-bezier(.2,.8,.2,1)}@keyframes pop{0%{transform:scale(.94);filter:brightness(.7)}70%{transform:scale(1.035);filter:brightness(1.25)}100%{transform:scale(1);filter:brightness(1)}}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:9px}.metric{min-height:77px;padding:11px;border-radius:14px;background:#091218;border:1px solid #24343e}.metric small{display:block;color:#84939d;font-size:8px;line-height:1.3;font-weight:800;min-height:24px}.metric b{display:block;font-size:21px;margin-top:5px;letter-spacing:-.6px}.metric.orange b{color:var(--gold)}.metric.blue b{color:var(--cyan)}.metric.green b{color:var(--green)}.metric.purple b{color:var(--purple)}
+.livebox{margin-top:10px;padding:10px;border-radius:16px;background:#071017;border:1px solid #20333d;overflow:hidden}.livebox svg{width:100%;display:block}.beam{stroke:#9aa7af;stroke-width:8}.dash{stroke:#4d606b;stroke-width:2;stroke-dasharray:8 8}.postline{fill:#35c9ff;filter:drop-shadow(0 0 5px #35c9ff)}
+.materials{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.mat{text-align:center;padding:13px 5px;border-radius:14px;background:#091218;border:1px solid #24343e}.mat b{font-size:25px;display:block}.mat span{font-size:8px;color:#84939d;font-weight:900;text-transform:uppercase}
+@media(max-width:550px){.wrap{padding:11px 8px 30px}.live{display:none}.card{padding:13px;border-radius:18px}.hero{min-height:112px}.hero b{font-size:46px}.metrics{grid-template-columns:1fr 1fr}.materials{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body><div class="wrap">
+<header><div class="brand"><div class="logo">RS</div><div><h1>Ringhiera Smart</h1><div class="tag">Sistema rapido di calcolo · cantiere</div></div></div><div class="live"><span class="dot"></span>LIVE</div></header>
+
+<div class="card"><div class="title">Configurazione</div><div class="grid">
+<div><label>Lunghezza trave · m</label><input id="L" type="number" inputmode="decimal" step=".01" value="24.50"></div>
+<div><label>Larghezza trave · cm</label><input id="W" type="number" inputmode="decimal" step="1" min="16" value="30"></div>
+</div><button class="calc" id="calcBtn" onclick="calcola()">⚡ CALCOLA POSA</button></div>
+
+<div class="card"><div class="title">Output principale</div><div class="heroGrid">
+<div class="hero orange" id="panelCard"><small>Pannelli</small><b id="panels">—</b><span>1,50 m cad.</span></div>
+<div class="hero blue" id="postCard"><small>Montanti</small><b id="posts">—</b><span>n + 1</span></div>
+</div></div>
+
+<div class="card"><div class="sectionHead"><div class="sectionName">SPARTITO LIVE</div><div class="badge">CENTRO-CENTRO · 1,51 m</div></div>
+<div class="heroGrid">
+<div class="hero blue" id="centerCard"><small>1° montante</small><b id="centerMargin">—</b><span>bordo → centro</span></div>
+<div class="hero orange" id="plateCard"><small>Bordo piastra</small><b id="plateMargin">—</b><span>bordo → bordo</span></div>
+</div>
+<div class="metrics">
+<div class="metric green"><small>Residuo totale</small><b id="residual">—</b></div>
+<div class="metric purple"><small>Interasse</small><b>151 cm</b></div>
+<div class="metric"><small>Span utilizzato</small><b id="used">—</b></div>
+<div class="metric"><small>Numero campate</small><b id="campate">—</b></div>
+</div>
+<div class="livebox"><svg id="railSvg" viewBox="0 0 700 105"></svg></div>
+</div>
+
+<div class="card"><div class="sectionHead"><div class="sectionName">CENTRAGGIO LARGHEZZA</div><div class="badge">PIASTRA 16 × 16</div></div>
+<div class="heroGrid">
+<div class="hero green" id="sideCard"><small>Bordo → bordo piastra</small><b id="sideMargin">—</b><span>margine laterale</span></div>
+<div class="hero purple" id="centerWCard"><small>Bordo → centro montante</small><b id="centerW">—</b><span>asse centrale</span></div>
+</div>
+<div class="metrics"><div class="metric blue"><small>Larghezza trave</small><b id="beamW">—</b></div><div class="metric orange"><small>Piastra</small><b>16 cm</b></div></div>
+<div class="livebox"><svg viewBox="0 0 700 115"><rect x="55" y="38" width="590" height="43" rx="7" fill="#263842"/><rect x="267" y="24" width="166" height="71" rx="8" fill="#ef741b"/><rect x="305" y="34" width="90" height="51" rx="5" fill="#081117"/><line x1="350" y1="13" x2="350" y2="103" stroke="#a586ff" stroke-width="2" stroke-dasharray="6 5"/><text x="350" y="111" text-anchor="middle" font-size="11" font-weight="800" fill="#a586ff">CENTRO TRAVE</text></svg></div>
+</div>
+
+<div class="card"><div class="sectionHead"><div class="sectionName">MATERIALI</div><div class="badge">TOTALE</div></div><div class="materials">
+<div class="mat"><b id="fischer">—</b><span>Fischer</span></div><div class="mat"><b id="pins">—</b><span>Perni</span></div><div class="mat"><b id="nuts">—</b><span>Dadi</span></div><div class="mat"><b id="washers">—</b><span>Rondelle</span></div>
+</div></div>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+function fmt(n){if(!Number.isFinite(n))return"—";const r=Math.round(n*10)/10;return Number.isInteger(r)?String(r):r.toFixed(1).replace(".",",")}
+function beep(){try{const A=window.AudioContext||window.webkitAudioContext;if(!A)return;const c=new A(),o=c.createOscillator(),g=c.createGain(),t=c.currentTime;o.type="sine";o.frequency.setValueAtTime(480,t);o.frequency.exponentialRampToValueAtTime(820,t+.11);g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.07,t+.015);g.gain.exponentialRampToValueAtTime(.0001,t+.16);o.connect(g);g.connect(c.destination);o.start(t);o.stop(t+.17);setTimeout(()=>c.close(),280)}catch(e){}}
+function pop(id){const e=$(id);e.classList.remove("pop");void e.offsetWidth;e.classList.add("pop")}
+function animateNumber(el,to){const from=parseFloat(el.dataset.v||0),start=performance.now(),dur=420;function f(now){const p=Math.min(1,(now-start)/dur),q=1-Math.pow(1-p,3);el.textContent=Math.round(from+(to-from)*q);if(p<1)requestAnimationFrame(f);else{el.textContent=to;el.dataset.v=to}}requestAnimationFrame(f)}
+function drawRail(n){
+ const s=$("railSvg"),w=700,left=28,right=672,y=63,usable=right-left;
+ let x0=left+25,x1=right-25;let centers=[];
+ if(n>0){for(let i=0;i<=n;i++)centers.push(x0+(x1-x0)*i/n)}
+ s.innerHTML='<line x1="'+left+'" y1="'+y+'" x2="'+right+'" y2="'+y+'" class="beam"/><line x1="'+left+'" y1="'+y+'" x2="'+right+'" y2="'+y+'" class="dash"/>';
+ centers.forEach((x,i)=>{s.innerHTML+='<rect x="'+(x-7)+'" y="'+(y-22)+'" width="14" height="44" rx="4" class="postline"/>';if(i<n)s.innerHTML+='<text x="'+((x+centers[i+1])/2)+'" y="27" text-anchor="middle" font-size="11" font-weight="800" fill="#8b9aa5">1,51 m</text>'});
+}
+function calcola(){
+ const L=parseFloat($("L").value),W=parseFloat($("W").value);
+ if(!Number.isFinite(L)||L<=0||!Number.isFinite(W)||W<16){alert("Inserisci una lunghezza valida e una larghezza di almeno 16 cm.");return}
+ beep();$("calcBtn").classList.remove("flash");void $("calcBtn").offsetWidth;$("calcBtn").classList.add("flash");
+ const passo=1.51,piastra=16,pannelli=Math.floor((L+1e-9)/passo),montanti=pannelli+1,usato=pannelli*passo,residuo=L-usato;
+ const margineCentroCm=residuo*50,marginePiastraCm=margineCentroCm-8,margineLatoCm=(W-piastra)/2,centroWCm=W/2;
+ animateNumber($("panels"),pannelli);animateNumber($("posts"),montanti);
+ $("centerMargin").textContent=fmt(margineCentroCm)+" cm";$("plateMargin").textContent=fmt(marginePiastraCm)+" cm";$("residual").textContent=fmt(residuo*100)+" cm";
+ $("used").textContent=fmt(usato)+" m";$("campate").textContent=pannelli;
+ $("sideMargin").textContent=fmt(margineLatoCm)+" cm";$("centerW").textContent=fmt(centroWCm)+" cm";$("beamW").textContent=fmt(W)+" cm";
+ $("fischer").textContent=montanti*4;$("pins").textContent=pannelli*2;$("nuts").textContent=pannelli*2;$("washers").textContent=pannelli*2;
+ drawRail(pannelli);["panelCard","postCard","centerCard","plateCard","sideCard","centerWCard"].forEach(pop)
+}
+$("L").addEventListener("keydown",e=>{if(e.key==="Enter")calcola()});$("W").addEventListener("keydown",e=>{if(e.key==="Enter")calcola()});calcola();
+</script></body></html>
