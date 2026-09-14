@@ -89,7 +89,9 @@ function calcola(){
  const L=parseFloat($("L").value),W=parseFloat($("W").value);
  if(!Number.isFinite(L)||L<=0||!Number.isFinite(W)||W<16){alert("Inserisci una lunghezza valida e una larghezza di almeno 16 cm.");return}
  beep();$("calcBtn").classList.remove("flash");void $("calcBtn").offsetWidth;$("calcBtn").classList.add("flash");
- const passo=1.51,piastra=16,pannelli=Math.floor((L+1e-9)/passo),montanti=pannelli+1,usato=pannelli*passo,residuo=L-usato;
+ const passo=1.51,piastra=16,mezzoPiastra=piastra/100,
+       pannelli=Math.max(0,Math.floor((L-mezzoPiastra*2+1e-9)/passo)),
+       montanti=pannelli+1,usato=pannelli*passo,residuo=L-usato;
  const margineCentroCm=residuo*50,marginePiastraCm=margineCentroCm-8,margineLatoCm=(W-piastra)/2,centroWCm=W/2;
  animateNumber($("panels"),pannelli);animateNumber($("posts"),montanti);
  $("centerMargin").textContent=fmt(margineCentroCm)+" cm";$("plateMargin").textContent=fmt(marginePiastraCm)+" cm";$("residual").textContent=fmt(residuo*100)+" cm";
