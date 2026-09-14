@@ -4,6 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Ringhiera Smart — WOW</title>
+<link rel="manifest" href="./manifest.json">
+<meta name="theme-color" content="#070a0d">
+<link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png">
+<link rel="apple-touch-icon" href="./icon-192.png">
 <style>
 :root{--bg:#071017;--panel:#101b23;--panel2:#14232d;--line:#263640;--text:#f4f7f9;--muted:#8b9aa5;--orange:#ff7a18;--gold:#ffb347;--cyan:#35c9ff;--green:#27d69a;--purple:#a586ff}
 *{box-sizing:border-box}
@@ -95,4 +99,5 @@ function calcola(){
  drawRail(pannelli);["panelCard","postCard","centerCard","plateCard","sideCard","centerWCard"].forEach(pop)
 }
 $("L").addEventListener("keydown",e=>{if(e.key==="Enter")calcola()});$("W").addEventListener("keydown",e=>{if(e.key==="Enter")calcola()});calcola();
+if ('serviceWorker' in navigator) { window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js')); }
 </script></body></html>
